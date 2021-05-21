@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>doc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/Patient_base.css'%}">
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>Doctor Page</h3>
+    </div>
+    <div class="right_area">
+      <a href="/logout" class="logout_btn">Logout</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <center>
+      <!-- "{% static 'images/{{DoctorExtra_a.Profilephoto}}'%}" -->
+      <h4>{{request.user.username}}</h4>
+      <img class="profile_image" src="images/profile_pics/default.png">
+      
+    </center>
+    <a href="DoctorExtra"><i class="fas fa-desktop"></i><span>upadte profile </span></a>
+    <a href="{% url 'Doctor_Prescription' %}"><i class="fas fa-address-card"></i><span>Add Prescription</span></a>
+
+  </div>
+  <!--sidebar end-->
+
+
+  <!--content start-->
+  <div class="content">
+    <br><br><br><br><br>
+    {% block content %}
+
+    {% endblock content %}
+
+    <br><br><br>
+    {% include "Doctor_app/doctor_footer.html" %}
+  </div>
+  <!--content end-->
+
+</body>
+
+</html>
+

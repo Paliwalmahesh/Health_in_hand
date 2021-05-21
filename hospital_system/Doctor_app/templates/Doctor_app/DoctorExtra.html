@@ -1,0 +1,60 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/Patient_signup.css'%}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2> Patient Signup Page</h2>
+            <p> register from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <h2 color ='red'>{{i}}</h2>
+               <form method="POST">
+                {% csrf_token %} 
+                  <div class="form-group">
+                     <label>Phone number</label>
+                     <input type="text" maxlength="11" class="form-control" name="Phonenumber" placeholder="Phonenumber" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Place_name</label>
+                    <input type="text" class="form-control" name="Place_name" placeholder="Place_name" required>
+                 </div>
+                 <div class="form-group">
+                    <label>citye</label>
+                    <input type="text" class="form-control" name="city" placeholder="city" required>
+                 </div>
+                 <div class="form-group">
+                    <label>state</label>
+                    <input type="text" class="form-control" name="state" placeholder="state" required>
+                 </div>
+                  <div class="form-group">
+                     <label>pincode</label>
+                     <input type="number" maxlength="6" class="form-control" name="pincode" placeholder="pincode" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Profilephoto</label>
+                    <input type="file" name="fileToUpload" id="fileToUpload" required>
+                  </div>
+                  <button type="submit" class="btn btn-black">Update</button>
+               </form>
+            </div>
+         </div>
+      </div>
+</body>
+</html>

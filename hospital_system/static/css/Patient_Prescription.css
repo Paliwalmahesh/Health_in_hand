@@ -1,0 +1,74 @@
+
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background-color: #d9ecf2;
+    font-family: 'Poppins', sans-serif;
+    color: #666
+}
+
+.h2 {
+    color: #444;
+    font-family: 'PT Sans', sans-serif
+}
+
+thead {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #666
+}
+
+
+
+.name {
+    display: inline-block
+}
+
+
+
+.table thead th,
+.table td {
+    border: none
+}
+
+.table tbody td:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+.table tbody td:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+#spacing-row {
+    height: 10px
+}
+
+
+
+@media(max-width:575px) {
+    .container {
+        width: 125%;
+        padding: 20px 10px
+    }
+}
+
+
+
+  .bg-blue {
+    background-color: #EBF5FB;
+    border-radius: 8px
+}
+
+
+.bg-blue:hover {
+    background-color: #3e64ff;
+    color: #eee;
+    cursor: pointer
+}
+

@@ -1,0 +1,52 @@
+{% extends 'Patient_app\Patient_base.html' %}
+{% load static %}
+{% block content %}
+  
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/Doctor_signup.css'%}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+          <h2 color ='red'>{{i}}</h2>
+          <form method="POST">
+           {% csrf_token %} 
+           
+           <div class="form-group">
+            <label>Doctor_name</label>
+            <input type="text" class="form-control" name="Doctor_name" placeholder="Doctor_name" required>
+         </div>
+             
+             <div class="form-group">
+               <label>Patient_name</label>
+               <input type="text" class="form-control" name="Patient_name" placeholder="Patient_name" required>
+            </div>
+            <div class="form-group">
+               <label>Test name</label>
+               <textarea rows = "1" cols = "60" class="form-control" name="Test_name" placeholder=" Write Test_name here" required></textarea>
+            </div>
+            <div class="form-group">
+               <label>report text</label>
+               <textarea rows = "8" cols = "100" class="form-control" name="report_text" placeholder="report_text" required></textarea>
+            </div>
+             <button type="submit" class="btn btn-black">Add report </button>
+          </form>
+       </div>
+    </div>
+ </div>
+
+
+
+
+   
+    
+
+
+
+{% endblock content %}

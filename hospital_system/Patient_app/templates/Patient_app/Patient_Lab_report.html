@@ -1,0 +1,85 @@
+{% extends 'Patient_app\Patient_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/Patient_Prescription.css'%}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <style>
+  .bg-blue_b {
+    background-color: #EBF5FB;
+    border-radius: 8px
+    }
+
+    .bg-blue_b:hover {
+        background-color: #3e64ff;
+        color: #eee;
+        cursor: pointer
+    }
+    /* #check1 {
+        display: none; */
+    #check1:checked~.bg-blue_b{
+        background-color: #3e64ff;
+        color: #eee;
+        display: none;
+
+    }
+    </style>
+       
+
+   
+</head>
+
+    
+    
+        <div class="container rounded mt-5 bg-white p-md-5">
+            <div class="h2 font-weight-bold">Reports</div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Labname</th>
+                            <th scope="col">doctor Name</th>
+                            <th scope="col">Date&Time</th>
+                        </tr>
+                    </thead>
+                    {% for i in lab_report %}
+                    <tbody>
+                        <input type="checkbox" id="check{{i}}">
+                        <tr class="bg-blue">
+                            <td class="pt-2"> 
+                                <div class="pl-lg-5 pl-md-3 pl-1 name">{{i.Laboratory_name}}</div>
+                            </td> 
+                            <td class="pt-3 mt-1">{{i.Doctor_name}}</td>
+                            <td class="pt-3">{{i.report_date}}</td>
+                            <td >
+                                <label for="check{{i}}">&#9776;</label>
+                            </td>
+                            
+                        </tr>
+                        <tr class="bg-blue_b">
+                            <td class="pt-2"> 
+                               {{i.Test_name}}
+                            </td> 
+                            <td class="pt-3 mt-1">{{i.report_text}}</td>
+                           
+                        </tr>
+                        <tr id="spacing-row">
+                            <td></td>
+                        </tr>
+                    
+                </tbody>
+                {% endfor %} 
+            </table>
+
+            
+        </div>
+   
+    
+
+
+
+{% endblock content %}

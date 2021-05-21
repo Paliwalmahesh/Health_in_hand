@@ -1,0 +1,31 @@
+.nev{
+    background-color: rgb(0, 0, 0);
+        padding: 30px;
+        height: 20px;
+        width: 6666px;
+        text-decoration: none;
+
+    }
+
+#navelements{
+
+    display: inline;
+    text-align: right;
+    text-transform: capitalize;
+    }
+#navelement{
+text-decoration: none;
+text-transform: capitalize;
+letter-spacing: 2px;
+color: white;
+margin: 0 16px;
+font-size: 1.5vw;
+
+}
+#navelement:hover{
+
+color: rgb(123, 123, 146);
+margin: 0 16px;
+font-size: 1.6vw;
+
+}
