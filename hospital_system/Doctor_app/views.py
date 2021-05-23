@@ -5,6 +5,9 @@ from django.contrib.auth import  authenticate,login,logout
 from Patient_app.models import Address
 from Doctor_app.models import DoctorExtra,Prescription
 from .decorator import authenticated_user,allowed_users
+import joblib
+import numpy as np
+
 
 # Create your views here.
 def Home(request):
@@ -98,3 +101,29 @@ def Doctor_Prescription(request):
         
     else:
         return render(request,'Doctor_app/Doctor_Prescription.html')
+
+def Heart_health(request):
+    forest=joblib.load('Heart_health_model.sav')
+    if request.method=='POST':
+        lis=np.array([])
+        lis=np.append(lis,request.POST['age'])
+        lis=np.append(lis,request.POST['Gender'])
+        lis=np.append(lis,request.POST['Height'])
+        lis=np.append(lis,request.POST['Weight'])
+        lis=np.append(lis,request.POST['ap_hi'])
+        lis=np.append(lis,request.POST['ap_low'])
+        lis=np.append(lis,request.POST['Cholestrol'])
+        lis=np.append(lis,request.POST['Glucose'])
+        lis=np.append(lis,request.POST['smoke'])
+        lis=np.append(lis,request.POST['Alocohol'])
+        lis=np.append(lis,request.POST['Active'])
+        lis=lis.reshape(1,11)
+        print(lis)
+        ans = forest.predict(lis)
+        if(ans==1):
+            txt="you have more than 50 % chanses for heart attack"
+        else:
+            txt="you have less than 50 % chanses for heart attack"
+        return render(request,'Doctor_app/Model_result.html',{'i':txt})
+    else:
+        return render(request,'Doctor_app/Model_input.html')

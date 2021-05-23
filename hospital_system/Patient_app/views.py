@@ -7,9 +7,6 @@ from Doctor_app.models import Prescription
 from laboratory_app.models import Lab_report
 from Doctor_app.decorator import allowed_users,authenticated_user
 
-
-
-
 def PatientHome(request):
     return render(request,'Patient_app/Patient_Home.html')
 
@@ -50,8 +47,8 @@ def Patient_Signup(request):
     else:
          return render(request,'Patient_app/Patient_Signup.html')
 
-@allowed_users(allowed_roles=['Patient,Admin'])
-@authenticated_user 
+@allowed_users(allowed_roles=['Patient'])
+
 def Patient_Extra(request):
     username = request.user
     if request.method == 'POST':
@@ -70,20 +67,19 @@ def Patient_Extra(request):
     else:
         return render(request,'Patient_app/PatientExtra.html')
 
-@allowed_users(allowed_roles=['Patient,Admin'])
-@authenticated_user 
+@allowed_users(allowed_roles=['Patient'])
 def Patient_done(request):
     return render(request,'Patient_app/Patient_index.html')
 
-@allowed_users(allowed_roles=['Patient,Admin'])
-@authenticated_user 
+@allowed_users(allowed_roles=['Patient'])
+
 def Patient_Prescription(request):
     username = request.user
     prescription=Prescription.objects.filter(Patient_name=username)
     return render(request,'Patient_app/Patient_Prescription.html',{'prescription':prescription})
 
-@allowed_users(allowed_roles=['Patient,Admin'])
-@authenticated_user 
+@allowed_users(allowed_roles=['Patient'])
+ 
 def Patient_Report(request):
     username = request.user
     lab_report=Lab_report.objects.filter(Patient_name=username)
