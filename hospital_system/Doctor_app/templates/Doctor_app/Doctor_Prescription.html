@@ -2,38 +2,35 @@
 {% extends 'Doctor_app\Doctor_base.html' %}
 {% load static %}
 {% block content %}
-<head>
-    <link rel="stylesheet" href="{% static 'css/Doctor_signup.css'%}">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
 
 
-<div class="main">
-    <div class="col-md-6 col-sm-12">
-       <div class="login-form">
-          <h2 color ='red'>{{i}}</h2>
-          <form method="POST">
-           {% csrf_token %} 
-             
-             <div class="form-group">
-               <label>Patient_name</label>
-               <input type="text" class="form-control" name="Patient_name" placeholder="Patient_name" required>
-            </div>
-            <div class="form-group">
-               <label>Prescription_text</label>
-               <textarea rows = "5" cols = "60" class="form-control" name="Prescription_text" placeholder=" Write Prescription here" required></textarea>
-            </div>
-            <div class="form-group">
-               <label>special_advice</label>
-               <textarea rows = "5" cols = "60" class="form-control" name="special_advice" placeholder="special_advice" required></textarea>
-            </div>
-             <button type="submit" class="btn btn-black">Add Prescription</button>
-          </form>
-       </div>
+
+
+ <form method="POST">
+   {% csrf_token %}
+  <div class="card border border-dark mx-3 my-3" >
+   <div class="row g-3 mx-3 my-3 ">
+
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Patient_name " name="Patient_name" required>
+      </div>
     </div>
- </div>
+<div class="row g-3 mx-3 my-3 ">
+
+  <div class="col">
+    <textarea rows = "5"  class="form-control" placeholder="Write Prescription here " name="Prescription_text" required></textarea>
+  </div>
+  <div class="col">
+    <textarea rows = "5"  class="form-control" name="special_advice" placeholder="special advice" required></textarea>
+  </div>
+</div>
+  <div class="row g-3 ">
+  <button type="submit" class="btn btn-dark mx-auto" style="max-width:20%;">Add Prescription</button>
+ 
+</div>
+
+     
+  </form>
 
 
 

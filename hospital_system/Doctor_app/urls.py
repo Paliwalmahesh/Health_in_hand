@@ -12,6 +12,8 @@ urlpatterns = [
     path('DoctorExtra',views.Doctor_Extra, name='DoctorExtra'),
     path('Doctor_done',views.Doctor_done, name='Doctor_done'),
     path('Heart_health',views.Heart_health, name='Heart_health'),
+    path('View_Prescription',views.View_Prescription, name='View_Prescription'),
+     path('View_Reports',views.View_Reports, name='View_Reports'),
     path('Doctor_Prescription',views.Doctor_Prescription, name='Doctor_Prescription'),
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name = 'Doctor_app/password_reset_confirm.html') , name = 'password_reset_confirm'),
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name = 'Doctor_app/password_reset_complete.html') , name = 'password_reset_complete'),

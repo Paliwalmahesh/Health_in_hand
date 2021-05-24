@@ -1,0 +1,30 @@
+{% extends 'Doctor_app\Doctor_base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<div class="accordion" id="accordionExample">
+     
+    {% for i in prescription %}
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{'i'}}" aria-expanded="true" aria-controls="{{'i'}}">
+                {{i.Prescription_date}}
+            </button>
+        </h2>
+        <div id="{{'i'}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            <strong class="my-1">Prescription by: Dr.{{i.Doctor_name}}</strong>
+            <h6>Prescription</h6>
+            <p>{{i.Prescription_text}}</p>
+            <h6>special advice</h>
+            <p>{{i.special_advice}}</p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+    </div>
+<br>
+<br>
+       
+{% endblock content %}

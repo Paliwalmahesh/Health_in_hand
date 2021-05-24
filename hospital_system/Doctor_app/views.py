@@ -7,6 +7,7 @@ from Doctor_app.models import DoctorExtra,Prescription
 from .decorator import authenticated_user,allowed_users
 import joblib
 import numpy as np
+from laboratory_app.models import Lab_report
 
 
 # Create your views here.
@@ -103,7 +104,7 @@ def Doctor_Prescription(request):
         return render(request,'Doctor_app/Doctor_Prescription.html')
 
 def Heart_health(request):
-    forest=joblib.load('Heart_health_model.sav')
+    forest=joblib.load('static/Heart_health_model.sav')
     if request.method=='POST':
         lis=np.array([])
         lis=np.append(lis,request.POST['age'])
@@ -127,3 +128,23 @@ def Heart_health(request):
         return render(request,'Doctor_app/Model_result.html',{'i':txt})
     else:
         return render(request,'Doctor_app/Model_input.html')
+
+def View_Prescription(request):
+    if request.method=='POST':
+       Patient_name=request.POST['Patient_user_name']
+       username=User.objects.get(username=Patient_name)
+       
+       prescription=Prescription.objects.filter(Patient_name=username)
+       return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
+    else:
+        return render(request,'Doctor_app/Username_input.html')
+
+def View_Reports(request):
+    if request.method=='POST':
+       Patient_name=request.POST['Patient_user_name']
+       username=User.objects.get(username=Patient_name)
+       
+       lab_report=Lab_report.objects.filter(Patient_name=username)
+       return render(request,'Doctor_app/View_reports.html',{'lab_report':lab_report})
+    else:
+        return render(request,'Doctor_app/Username_input.html')
