@@ -1,4 +1,4 @@
-{% extends 'Patient_app\Patient_base.html' %}
+{% extends 'Laboratory_app\Laboratory_base.html' %}
 {% load static %}
 {% block content %}
   
@@ -11,7 +11,7 @@
 </head>
 
 
-<div class="main">
+<!-- <div class="main">
     <div class="col-md-6 col-sm-12">
        <div class="login-form">
           <h2 color ='red'>{{i}}</h2>
@@ -39,7 +39,35 @@
           </form>
        </div>
     </div>
- </div>
+ </div> -->
+ <form method="POST">
+   {% csrf_token %}
+  <div class="card border border-dark mx-3 my-3" >
+   <div class="row g-3 mx-3 my-3 ">
+
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Patient_name " name="Patient_name" required>
+      </div>
+      <div class="col">
+         <input type="text" class="form-control" placeholder="Doctor_name " name="Doctor_name" required>
+       </div>
+    </div>
+<div class="row g-3 mx-3 my-3 ">
+
+  <div class="col">
+    <textarea rows = "5"  class="form-control" placeholder="Write Test_name here " name="Test_name" required></textarea>
+  </div>
+  <div class="col">
+    <textarea rows = "5"  class="form-control" name="report_text" placeholder="Write Report text" required></textarea>
+  </div>
+</div>
+  <div class="row g-3 ">
+  <button type="submit" class="btn btn-dark mx-auto" style="max-width:20%;">Add report </button>
+ 
+</div>
+
+     
+  </form>
 
 
 

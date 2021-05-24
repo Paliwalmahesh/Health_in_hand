@@ -1,26 +1,17 @@
 {% extends 'Doctor_app\Doctor_base.html' %}
 {% load static %}
 {% block content %}
-
-
-
-
- <form method="POST">
+<form method="POST">
    {% csrf_token %}
   <div class="card border border-dark mx-3 my-3" >
    <div class="row g-3 mx-3 my-3 ">
-
       <div class="col">
         <input type="text" class="form-control" placeholder="Patient name " name="Patient_user_name" required>
       </div>
     </div>
-
-  <button type="submit" class="btn btn-dark mx-auto my-1" style="max-width:20%;">Search</button>
- 
-</div>
-
-     
-  </form>
+    <button type="submit" class="btn btn-dark mx-auto my-1" style="max-width:20%;">Search</button>
+  </div> 
+</form>
 
 
 

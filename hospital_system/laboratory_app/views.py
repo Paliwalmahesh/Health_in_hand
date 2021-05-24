@@ -44,12 +44,12 @@ def Laboratory_Signin(request):
 
     else:
         return render(request,'Laboratory_app/Laboratory_signin.html')
-@allowed_users(allowed_roles=['Laboratory,Admin'])
+@allowed_users(allowed_roles=['Laboratory'])
 @authenticated_user        
 def Laboratory_done(request):
     return render(request,'Laboratory_app/Laboratory_index.html')
 
-@allowed_users(allowed_roles=['Laboratory,Admin'])
+@allowed_users(allowed_roles=['Laboratory'])
 @authenticated_user 
 def Laboratory_report(request):
     username = request.user
@@ -65,7 +65,7 @@ def Laboratory_report(request):
                 Doctor=User.objects.get(username=Doctor_name)
                 Lab_report_N=Lab_report(Laboratory_name=Laboratory_name,Doctor_name=Doctor,Patient_name=Patient,Test_name=Test_name,report_text=report_text)
                 Lab_report_N.save()
-                return redirect('Laboratory_done')
+                return render(request,'Laboratory_app/Laboratory_index.html',{'i':'Report added successfully !!'})
             else:
                 return render(request,'Laboratory_app/Laboratory_reports.html',{'i':'Doctor name  is not valid'})
         else:

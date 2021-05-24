@@ -92,10 +92,10 @@ def Doctor_Prescription(request):
 
         if User.objects.filter(username=Patient_name).exists():
             Patient=User.objects.get(username=Patient_name)
-            # group = request.user.groups.filter(name=Patient)
             Prescription_N=Prescription(Doctor_name=Doctor_name,Patient_name=Patient,Prescription_text=Prescription_text,special_advice=special_advice)
             Prescription_N.save()
-            return redirect('Doctor_done')
+            return render(request,'Doctor_app/Doctor_index.html',{'i':'Prescription added succesfully!!'})
+
         else:
             
             return render(request,'Doctor_app/Doctor_Prescription.html',{'i':'Patient is not valid'})
@@ -119,7 +119,7 @@ def Heart_health(request):
         lis=np.append(lis,request.POST['Alocohol'])
         lis=np.append(lis,request.POST['Active'])
         lis=lis.reshape(1,11)
-        print(lis)
+    
         ans = forest.predict(lis)
         if(ans==1):
             txt="you have more than 50 % chanses for heart attack"

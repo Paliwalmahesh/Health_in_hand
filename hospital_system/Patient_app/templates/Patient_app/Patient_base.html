@@ -1,61 +1,88 @@
-<!DOCTYPE html>
 {% load static %}
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="utf-8">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-   <title>doc</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <link rel="stylesheet" href="{% static 'css/Patient_base.css'%}">
-</head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>home page </title>
+    
+  </head>
 
 <body>
-
-  <input type="checkbox" id="check">
-  <header>
-    <label for="check">
-      <i class="fas fa-bars" id="sidebar_btn"></i>
-    </label>
-    <div class="left_area">
-      <h3>Patient Page</h3>
+  <nav class="navbar navbar-expand-lg navbar-light "style="background-color: #e3f2fd;">
+    <div class= "container-fluid">
+      <a class="navbar-brand text-capitalize fw-bold" href="#">User Page</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Heart_health' %}">Heart Check</a>
+            
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              facility
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'Patient_Prescription' %}">View Prescription</a></li>
+              <li><a class="dropdown-item" href="{% url 'Patient_Report' %}">View Reports</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <span class="navbar-text text-capitalize fw-bold">
+         Welcome, {{request.user.username}}
+        </span>
+      </div>
     </div>
-    <div class="right_area">
-      <a href="/logout" class="logout_btn">Logout</a>
+  </nav>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images\p home 1.jpg" class="d-block w-100" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="images\p home 2.jpg" class="d-block w-100" alt="">
+      </div>
+      <div class="carousel-item">
+        <img src="images\p home 3.jpg" class="d-block w-100" alt="">
+      </div>
     </div>
-  </header>
-  <!--header area end-->
-  <!--sidebar start-->
-  <div class="sidebar">
-    <center>
-      <h4>{{request.user.username}}</h4>
-      <img class="profile_image" src="images/profile_pics/default.png">
-    </center>
-    <a href="PatientExtra"><i class="fas fa-desktop"></i><span>upadte profile </span></a>
-    <a href="{% url 'Patient_Prescription' %}"><i class="fas fa-user-md"></i><span>view Prescription</span></a>
-    <a href="{% url 'Patient_Report' %}"><i class="fas fa-file-text"></i><span>view Reports</span></a>
-
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <!--sidebar end-->
 
-
-  <!--content start-->
   <div class="content">
-    <br><br><br><br><br>
+    
     {% block content %}
 
     {% endblock content %}
-
-
-    <br><br><br>
-    {% include "Patient_app/footer.html" %}
   </div>
+  <footer>
+    {% include "Doctor_app/doctor_footer.html" %}
+    </footer>
   <!--content end-->
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </html>
 
