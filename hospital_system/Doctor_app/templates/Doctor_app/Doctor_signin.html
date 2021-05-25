@@ -60,17 +60,19 @@
         <div class="card border border-dark mx-3 my-3" >
       <div class="row g-3 mx-3 my-3 ">
          <h2 class="mx-auto" style=" color: rgb(248, 0, 0);">{{i}}</h2>
-        <div class="col">
+        <div class="row my-3 mx-auto" style="max-width:51%;">
           <input type="text" class="form-control" placeholder="Username " name="usernames" required>
         </div>
-        <div class="col">
+        <div class="row my-3 mx-auto"  style="max-width:51%;">
           <input type="Password" class="form-control" name="password" placeholder="Password" required>
         </div>
-        <div class="row g-3 ">
-        <button type="submit" class="btn btn-dark mx-auto" style="max-width:48%;">Login</button>
-        <a href="{% url 'Doctor_Signup'%}" class="btn btn-secondary mx-auto" style="max-width:48%;">Register</a>
+        <div class="row g-3 mx-auto ">
+        <button type="submit" class="btn btn-dark mx-auto " style="max-width :20%;">Login</button>
+        <p class="mx-auto"><a href="{% url 'password_reset' %} " >Forgot password ?</a></p>
+
         </div>
-        <div class="forgot-pass"><a href="{% url 'password_reset' %}">Forgot password ?</a></div>
+        
+        <p class="mx-auto"> Not have account !!<a href="{% url 'Doctor_Signup'%}" style="max-width:48%;"> Register</a></p>
       </div>
     </div>
            
@@ -90,4 +92,3 @@
   <br>
 {% include "Doctor_app/doctor_footer.html" %}
 </html>
-
