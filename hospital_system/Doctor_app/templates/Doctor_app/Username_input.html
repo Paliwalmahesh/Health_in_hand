@@ -1,6 +1,9 @@
 {% extends 'Doctor_app\Doctor_base.html' %}
 {% load static %}
 {% block content %}
+<div class="alert alert-light" role="alert">
+  {{i}}
+ </div>
 <form method="POST">
    {% csrf_token %}
   <div class="card border border-dark mx-3 my-3" >
@@ -12,7 +15,4 @@
     <button type="submit" class="btn btn-dark mx-auto my-1" style="max-width:20%;">Search</button>
   </div> 
 </form>
-
-
-
 {% endblock content %}

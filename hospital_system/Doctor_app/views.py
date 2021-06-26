@@ -131,20 +131,24 @@ def Heart_health(request):
 
 def View_Prescription(request):
     if request.method=='POST':
-       Patient_name=request.POST['Patient_user_name']
-       username=User.objects.get(username=Patient_name)
-       
-       prescription=Prescription.objects.filter(Patient_name=username)
-       return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
+        Patient_name=request.POST['Patient_user_name']
+        if (1==1):
+            username=User.objects.get(username=Patient_name)
+            prescription=Prescription.objects.filter(Patient_name=username)
+            return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
+        else:
+            return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})   
     else:
         return render(request,'Doctor_app/Username_input.html')
 
 def View_Reports(request):
     if request.method=='POST':
        Patient_name=request.POST['Patient_user_name']
-       username=User.objects.get(username=Patient_name)
-       
-       lab_report=Lab_report.objects.filter(Patient_name=username)
-       return render(request,'Doctor_app/View_reports.html',{'lab_report':lab_report})
+       if User.objects.filter(username=Patient_name).exists():
+            username=User.objects.get(username=Patient_name)
+            lab_report=Lab_report.objects.filter(Patient_name=username)
+            return render(request,'Doctor_app/View_reports.html',{'lab_report':lab_report})
+       else: 
+           return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})  
     else:
         return render(request,'Doctor_app/Username_input.html')
