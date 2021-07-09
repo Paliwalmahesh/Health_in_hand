@@ -26,6 +26,12 @@ class PatientExtra(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+class PatientPasscodes(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    passcode=models.CharField(max_length=10, null = True)
+    
+    def __str__(self):
+        return self.user.username
 
 class Medical_details(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)

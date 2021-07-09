@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth,Group
 from django.http import HttpResponse
 from django.contrib.auth import  authenticate,login,logout
-from Patient_app.models import Address
+from Patient_app.models import Address,PatientPasscodes
 from Doctor_app.models import DoctorExtra,Prescription
 from .decorator import authenticated_user,allowed_users
 import joblib
@@ -132,10 +132,15 @@ def Heart_health(request):
 def View_Prescription(request):
     if request.method=='POST':
         Patient_name=request.POST['Patient_user_name']
-        if (1==1):
+        Patient_Passcode=request.POST['Patient_Passcode']
+        if User.objects.filter(username=Patient_name).exists():
             username=User.objects.get(username=Patient_name)
             prescription=Prescription.objects.filter(Patient_name=username)
-            return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
+            patientPasscodes=PatientPasscodes.objects.get(user=username)
+            if (Patient_Passcode==patientPasscodes.passcode):
+                return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
+            else:
+               return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
         else:
             return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})   
     else:
@@ -144,10 +149,16 @@ def View_Prescription(request):
 def View_Reports(request):
     if request.method=='POST':
        Patient_name=request.POST['Patient_user_name']
+       Patient_Passcode=request.POST['Patient_Passcode']
        if User.objects.filter(username=Patient_name).exists():
             username=User.objects.get(username=Patient_name)
             lab_report=Lab_report.objects.filter(Patient_name=username)
-            return render(request,'Doctor_app/View_reports.html',{'lab_report':lab_report})
+            patientPasscodes=PatientPasscodes.objects.get(user=username)
+            if (Patient_Passcode==patientPasscodes.passcode):
+                return render(request,'Doctor_app/View_reports.html',{'lab_report':lab_report})
+            else:
+               return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
+            
        else: 
            return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})  
     else:
