@@ -1,11 +1,28 @@
+body{
+  margin-top: 5px;
+  background-color: #E0FFFF;
+}
 
+.container{
+  margin-top: 20px;
+}
+
+
+#parallax{
+  background-image: url('../images/web_devlopment.jpg');
+  min-height: 500px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size:auto;
+  background-position: center;
+  max-width: 100%;}
 
  #carouselExampleInterval{
-    width:1400px;
+    
     margin-left:auto;
     margin-right:auto;
     margin-top:10px;
-    border:2.5px green solid;
+    border:2.5px royalblue solid;
     border-radius:5px;
  }
 
@@ -84,4 +101,5 @@
     transform: translate(-50%, -50%);
     text-align: center;
   }
+
   
