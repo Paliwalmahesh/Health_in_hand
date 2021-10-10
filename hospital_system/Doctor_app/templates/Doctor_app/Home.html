@@ -5,25 +5,36 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel = "stylesheet"type="text/css" href="{% static 'css/Home.css'%}">
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>home page </title>
     
+
+    <script>
+            function myFunction(page) {
+                window.open(page);
+            }
+    </script>
+    <link rel = "stylesheet"type="text/css" href="{% static 'css/Home.css'%}">
   </head>
-  <body>
-    <div style=" background-color: rgb(236, 230, 230)" >
+  <body >
+    <div  >
     <nav class="navbar navbar-expand-lg navbar-light sticky-top ">
       <div class="container-fluid">
         <a class="navbar-brand text-capitalize fw-bold" href="#"> Health in hand </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" align = "right">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#" >Home</a>
             </li>
+            
            
           </ul>
         </div>
@@ -54,31 +65,41 @@
         </button>
       </div>
    </div>
+
+   <!-- Parallax to below -->
+  
+
    <div class="mx-auto my-5">
-    <div class="row mx-auto ">
-        <div class="card col-lg-4 mx-auto my-2" style="width: 18rem;">
-            <img src="images//images1.jpg" class="card-img-top" alt="">
-            <div class="card-body ">
-            <p class="text-capitalize fw-bold">If you are Doctor</p>
-            <a href="DoctorHome/Doctor_Signin" class="btn btn-danger">Doctor Page</a>
+    <div class="row mx-auto " id ="cont">
+        <div class="container" id = "i1">
+            <img src="images//doctors.jpg" class="image" alt="">
+            <div class="overlay" >
+              <div class="text" ><p>Welcome Doctor!!!<br> Get your data sorted </p>
+                <a href="DoctorHome/Doctor_Signin" class="btn btn-warning">Doctor Page</a>
+               </div>
             </div>
         </div>
-        <div class="card col-lg-4 mx-auto  my-2" style="width: 18rem;">
-            <img src="images//download2.jpg" class="card-img-top" alt="">
-            <div class="card-body ">
-            <p class="text-capitalize fw-bold">If you are lab technician</p>
-            <a href="LaboratoryHome/Laboratory_Signin" class="btn btn-warning">lab Page</a>
+        <div class="container" id="i2">
+            <img src="images//Lab.jpg" class="image" alt="">
+            <div class="overlay" >
+              <div class="text"><p>Welcom Lab tecnhnician !!!  </p>
+              <a href="LaboratoryHome/Laboratory_Signin" class="btn btn-warning"> lab Page </a>
+               </div>
             </div>
         </div>
-        <div class="card col-lg-4 mx-auto" style="width: 18rem;">
-            <img src="images//download4.jpg" class="card-img-top" alt="">
-            <div class="card-body">
-            <p class="text-capitalize fw-bold">If you are user</p>
-            <a href="PatientHome/Patient_Signin" class="btn btn-info">User Page</a>
+        <div class="container" id="i3">
+            <img src="images//User.png" class="image" alt="">
+            <div class="overlay">
+             <div class="text" ><p>Welcome User!!!</p>
+             <a href="PatientHome/Patient_Signin" class="btn btn-warning">User Page</a>
+              </div>
             </div>
-        </div>
-    </div>
+        </div> 
+    
 </div>
+
+
+
 
 <div class="col-8">
 <div class="card mb-3 mx-5 my-2" style="max-width: 660px;" >
@@ -90,8 +111,8 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">Why This Project?</h5>
-        <p class="card-text"> Due to the pamdamic our health system is working under pressure many 
-          patients are admitted at a time.  If  doctors are unable to track medical history then the treatment getting delayed
+        <p class="card-text"> Due to the pandamic our health system is working under pressure many 
+          patients are admitted at a time.  If  doctors are unable to track medical history then the treatment gets delayed
            and this is very harmfull for the health of patient. </p>
       </div>
     </div>
@@ -143,6 +164,8 @@
     </div>
   </div>
   </div>
+
+
 
 
 

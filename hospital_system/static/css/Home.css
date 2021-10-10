@@ -1,31 +1,87 @@
-.nev{
-    background-color: rgb(0, 0, 0);
-        padding: 30px;
-        height: 20px;
-        width: 6666px;
-        text-decoration: none;
 
-    }
 
-#navelements{
+ #carouselExampleInterval{
+    width:1400px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    border:2.5px green solid;
+    border-radius:5px;
+ }
 
-    display: inline;
-    text-align: right;
-    text-transform: capitalize;
-    }
-#navelement{
-text-decoration: none;
-text-transform: capitalize;
-letter-spacing: 2px;
-color: white;
-margin: 0 16px;
-font-size: 1.5vw;
+ #i1 {
+    width: 19rem;
+    height:19rem;
 
-}
-#navelement:hover{
+    position: relative;
+    border: black,solid;
+    border-radius: 3px;
 
-color: rgb(123, 123, 146);
-margin: 0 16px;
-font-size: 1.6vw;
+  }
+  #i2{
+    width: 19rem;
+    height:19rem;
 
-}
+    position: relative;
+    
+
+  }
+
+  #i3{
+    width: 19rem;
+    height:19rem;
+
+    position: relative;
+    
+
+  }
+  
+  /* Make the image to responsive */
+  .image {
+    width: 17rem; 
+    height:18rem;
+    border:3px darksalmon solid;
+    border-radius: 3px;
+    
+    
+  }
+
+  #cont{
+      width:1100px;
+      padding-left: 60px;
+      padding-right: 60px;
+      
+  }
+  
+  /* The overlay effect (full height and width) - lays on top of the container and over the image */
+  .overlay {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 18rem; 
+    height:18rem;
+    transform: scale(0);
+    transition: .3s ease;
+  }
+  
+  /* When you mouse over the container, the overlay text will "zoom" in display */
+  .container:hover .overlay {
+    transform: scale(1);
+  }
+  
+  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
