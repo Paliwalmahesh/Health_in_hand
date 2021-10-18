@@ -18,6 +18,7 @@ from django.urls import path,include
 from Doctor_app import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,7 @@ urlpatterns = [
     path('DoctorHome/', include('Doctor_app.urls')),
     path('PatientHome/', include('Patient_app.urls')),
     path('LaboratoryHome/', include('laboratory_app.urls')),
+    url('validate_username',views.validate_username, name='validate_username')
 ]
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth,Group
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.contrib.auth import  authenticate,login,logout
 from Patient_app.models import Address,PatientPasscodes
 from Doctor_app.models import DoctorExtra,Prescription
@@ -8,6 +8,7 @@ from .decorator import authenticated_user,allowed_users
 import joblib
 import numpy as np
 from laboratory_app.models import Lab_report
+
 
 
 # Create your views here.
@@ -163,3 +164,24 @@ def View_Reports(request):
            return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})  
     else:
         return render(request,'Doctor_app/Username_input.html')
+    
+def validate_username(request):
+    
+    
+    # users = list(User.objects.values_list('username', flat=True))
+    
+    
+    # message = "Hello "+username
+    # if(username in users):
+    #     message = "Username already taken"
+    # else:
+    #     message = "Username Available"
+
+    if request.method == 'GET':
+        users = list(User.objects.values_list('username', flat=True)) 
+        username = {'usernames':users}
+        # username=request.GET.get('username')
+        # message = "Hello "+str(username)
+    # return HttpResponse('Url Object Created')
+    
+        return JsonResponse(username)
