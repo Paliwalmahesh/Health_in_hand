@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Montserrat:wght@500&display=swap');
+html{
+    font-size: 62.5%;
+    /* font-size: .7vw; */
+    
+}
+body{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #D6E1E9;
+    font-family: 'Montserrat', sans-serif;
+    
+    
+}
+li, a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.but{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.navbar {
+    background-color: #4b4f68;
+    z-index: 100;
+    
+  }
+
+ .navbar-nav li a{
+     font-size: medium;
+     color: #fff;
+ }
+
+
+
+  .custom-toggler.navbar-toggler {
+    border-color: #fff;
+  }
+  /* Setting the stroke to green using rgb values (0, 128, 0) */
+
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255,255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .dropdown-menu{
+    background-color: #4b4f68;
+  }
+  .dropdown-menu li a{
+    color: #fff;
+  }
+
+  #profile{
+    font-size: medium;
+    color: #fff;
+    margin: auto 0;
+    text-align: center;
+    
+  }
+
+.but{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: .9rem 2.5rem;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.but:hover{
+    background-color: rgba(0,136,169,0.8);
+
+}  
+#logo{
+    cursor: pointer;
+    margin-right: auto;
+    max-width: 8rem;
+    max-height: 8rem;
+    background-color: khaki;
+    border:thin;
+    border-radius: 2.2rem;
+}
+
+
+.heart_inp{
+    /* width: 100%; */
+    border: solid black .1rem;
+}
+form{
+    width: fit-content;
+    margin: 2rem auto;
+}
+.my_row{
+    margin-bottom: 1.8rem;
+}
+.form-select1, .form-control1{
+    margin-right: 2rem;
+    height: 4.3rem;
+    width: 22rem;
+    border: 0.1rem solid #ccc;
+    border-radius: .4rem;
+    box-sizing: border-box;
+}
+#Heart_problems{
+    width: 46.3rem;
+}
+.btn{
+    width: 46.3rem;
+    height: 4.3rem;
+    border: 0.1rem solid #ccc;
+    border-radius: .4rem;
+    box-sizing: border-box;
+    font-size: medium;
+    color: #ecf0f1;
+    cursor: pointer;
+    background-color: rgba(0,136,169,1);
+    transition: all 0.3s ease 0s;
+}
+.btn:hover{
+    background-color: rgba(0,136,169,.8);
+}
+
+.loader {
+    visibility: hidden;
+    border: 0.32rem solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 0.32rem solid #3498db;
+    width: 2.4rem;
+    height: 2.4rem;
+    animation: spin 2s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #h2, #content{
+      visibility: hidden;
+  }
+
+
+
+
+#abt{
+
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: dodgerblue;
+}
+
+#abt > div {
+    margin: 2rem auto;
+
+  }
+
+
+#yt h3{
+    color: springgreen;
+
+}
+
+
+.Contact_Us h3{
+    color: springgreen;
+}
+.sign_off{
+    /* background-color: #000; */
+
+    height: 9rem;
+    padding: 1.2em;
+    text-align: center;
+}
+.fa {
+    padding: 2rem;
+    font-size: 3rem;
+    width: 7rem;
+    text-align: center;
+    text-decoration: none;
+    margin: .5rem .2rem;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-github{
+
+    background: #125688;
+    color: white;
+
+  }
+
+
+
+
+
+
+
+@media (max-width:480px){
+   
+  html{
+      font-size: 45%;
+  }
+
+  div{
+      width: 100%;
+  }
+
+    #logo{
+      transform: scale(.8);
+      margin-left: 1rem;
+    }
+
+    form{
+        width: 90%;
+    }
+    .my_row{
+        padding: 0 2rem;
+    }
+
+    .form-control1, .form-select1, #Heart_problems, .btn{
+        width: 90%;
+        
+    }
+    
+  #abt{
+      /* transform: translateY(100%); */
+      margin-top: 20rem;
+  }
+
+  #yt iframe{
+      margin-left: 1rem;
+      width: 20rem;
+      height: 11.5rem;
+  }
+
+  .fa{
+      width: 5rem;
+      font-size: 2rem;
+      padding: 1rem;
+  }
+
+  
+}

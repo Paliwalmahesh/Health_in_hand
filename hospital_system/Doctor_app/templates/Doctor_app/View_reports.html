@@ -32,14 +32,14 @@
                 <div><h3 id="profile">Welcome {{request.user.username}}</h3></div>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'Doctor_done' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'updateDoctorExtraForm' %}">Profile</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+                        <a class="nav-link " href="{% url 'Heart_health' %}" tabindex="-1" aria-disabled="true">Heart Check </a>
                     </li>
                 </ul>
 
@@ -86,7 +86,7 @@
             <h3>Contact Us</h3>
             <div class="sign_off">
                 <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-linkedin"></a>
+                <a href="https://www.linkedin.com/in/mahesh-paliwal-796a5319b/" class="fa fa-linkedin"></a>
                 <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"></a>
                 <!-- <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"><img src="../images/github_icon.png" alt=""></a> -->
             </div>
@@ -113,22 +113,4 @@
 
 
      
-    <!-- {% for i in lab_report %}
-        <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{'i'}}" aria-expanded="true" aria-controls="{{'i'}}">
-                {{i.report_date}}
-            </button>
-        </h2>
-        <div id="{{'i'}}" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-            <strong class="my-1">Prescription by: Dr.{{i.Doctor_name}}</strong>
-            <h6>Test name</h6>
-            <p>{{i.Test_name}}</p>
-            <h6>report text</h>
-            <p>{{i.report_text}}</p>
-            </div>
-        </div>
-        </div>
-        {% endfor %}
-    </div> -->
+
