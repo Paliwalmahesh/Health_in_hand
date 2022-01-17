@@ -1,17 +1,15 @@
-
-      var user = document.getElementById('userDOC');
-      user.addEventListener('blur',validity11);
-      
-      function validity11(){
+var user = document.getElementById('userDOC');
+user.addEventListener('blur',validity11);
+function validity11(){
       
   
-      var username = document.querySelector("#userDOC").value;
-      const request = new XMLHttpRequest();
+  var username = document.querySelector("#userDOC").value;
+  const request = new XMLHttpRequest();
       
       
 
       // If specified, responseType must be empty string or "text"11
-      request.responseType = 'json';
+    request.responseType = 'json';
 
       request.onload = function () {
             if (request.readyState === request.DONE) {

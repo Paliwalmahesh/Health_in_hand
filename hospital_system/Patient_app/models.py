@@ -14,7 +14,7 @@ class PatientExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     joindate=models.DateField(auto_now_add=True)
     mobile = models.CharField(max_length=12)
-    Profilephoto = models.ImageField(null=True, blank=True)
+    Profilephoto = models.ImageField(default='default.png',null=True, blank=True)
     Address=models.OneToOneField(Address,on_delete=models.CASCADE, null=True ,blank=True)
     def __str__(self):
         return self.user.username

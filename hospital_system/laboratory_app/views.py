@@ -2,13 +2,42 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth,Group
 from django.http import HttpResponse
 from django.contrib.auth import  authenticate,login,logout
-from .models import Lab_report,LaboratoryExtra 
+from .models import Lab_report,LaboratoryExtra
+from Doctor_app.forms import AddressForm
+from Patient_app.models import Address,PatientPasscodes
+from .forms import LaboratoryExtraForm
 from Doctor_app.decorator import allowed_users,authenticated_user
 
 # Create your views here.
 def LaboratoryHome(request):
     return render(request,'laboratory_app/Laboratory_Home.html')
 
+def updateLaboratoryExtraForm_c(request,username):
+	Patient_name = User.objects.get(username=username)
+	if request.method == 'POST':
+		laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
+		Address_N=laboratoryExtra.Address
+		form1 = LaboratoryExtraForm(request.POST,request.FILES, instance=laboratoryExtra)
+		form3 = AddressForm(request.POST,instance=Address_N)
+		if form1.is_valid():
+			form1.save()
+			form3.save()
+			return redirect("Laboratory_Signin")
+
+	user=Patient_name
+	Address_N= Address()
+	Address_N.save()
+	LaboratoryExtra_n = LaboratoryExtra(user=user,Address=Address_N)
+	LaboratoryExtra_n.save()
+	laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
+	form = LaboratoryExtraForm(instance=laboratoryExtra)
+	Address_N=laboratoryExtra.Address
+	form2=AddressForm(instance=Address_N)
+	context = {'form':form,
+		'laboratoryExtra':laboratoryExtra,
+		'form2': form2,}
+		
+	return render(request, 'Laboratory_app/LaboratoryExtra_form.html', context)
 def Laboratory_Signup(request):
     if request.method == 'POST':
         first_name = request.POST['First_name']
@@ -25,7 +54,7 @@ def Laboratory_Signup(request):
                 group = Group.objects.get(name= 'Laboratory')
                 group.user_set.add(users)
                 users.save()
-                return redirect('Laboratory_Signin')
+                return redirect('updateLaboratoryExtraForm_c',username)
         else:
              return render(request,'Laboratory_app/Laboratory_Signup.html',{'i':'Passwords are not same'})
     else:
@@ -72,3 +101,52 @@ def Laboratory_report(request):
             return render(request,'Laboratory_app/Laboratory_reports.html',{'i':'Patient name is not valid'})
     else:
         return render(request,'Laboratory_app/Laboratory_reports.html')
+
+
+def updateLaboratoryExtraForm(request):
+		Patient_name = request.user
+		users = User.objects.get(username=Patient_name)
+		LaboratoryExtra = LaboratoryExtra.objects.get(user=users)
+		form = LaboratoryExtraForm(instance=LaboratoryExtra)
+		Address_N=LaboratoryExtra.Address
+		form2=AddressForm(instance=Address_N)
+		if request.method == 'POST':
+			form1 = LaboratoryExtraForm(request.POST,request.FILES, instance=LaboratoryExtra)
+			form3 = AddressForm(request.POST,instance=Address_N)
+			if form1.is_valid():
+				form1.save()
+				form3.save()
+				return redirect("Laboratory_done")
+		context = {'form':form,
+			'laboratoryExtra':LaboratoryExtra,
+			'form2': form2,}
+		return render(request, 'Laboratory_app/LaboratoryExtra_form.html', context)
+
+def View_Reports_lab(request):
+	if request.method=='POST':
+		Patient_name=request.POST['Patient_user_name']
+		Patient_Passcode=request.POST['Patient_Passcode']
+		if User.objects.filter(username=Patient_name).exists():
+			username=User.objects.get(username=Patient_name)
+			lab_report=Lab_report.objects.filter(Patient_name=username)
+			patientPasscodes=PatientPasscodes.objects.get(user=username)
+			if (Patient_Passcode==patientPasscodes.passcode):
+				return render(request,'Laboratory_app/View_reports.html',{'lab_report':lab_report})
+			else:
+				return render(request,'Laboratory_app/Username_input.html',{'i':"user passcodes is wrong"})  
+			
+		else: 
+			return render(request,'Laboratory_app/Username_input.html',{'i':"user does not exits"})  
+	else:
+		return render(request,'Laboratory_app/Username_input.html')
+	
+
+def View_Lab_report_Lab(request,pk):
+	Lab_report_present=Lab_report.objects.filter(Lab_reportid=pk)
+	context={
+		'Lab_report_present':Lab_report_present
+	}
+	return render(request, 'Doctor_app/Lab_report_template.html', context)
+
+	
+	

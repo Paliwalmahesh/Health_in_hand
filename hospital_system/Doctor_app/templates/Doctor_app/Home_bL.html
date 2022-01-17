@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/HiH_Logo.png" type="image/png">
+    <title>Health in Hands</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/Home_BL.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="images/Web_Logo.png" alt="Health in Hands" id="logo"
+          /></a>
+          <button
+            class="navbar-toggler custom-toggler but"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            id=toggle_button
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Login
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'Doctor_Signin' %}">Doctor</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Laboratory_Signin'%}">Laboratory</a></li>
+                  <!-- <li><hr class="dropdown-divider"></li> -->
+                  <li><a class="dropdown-item" href="{% url 'Patient_Signin'%}">Patient</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link "
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    <div id=imge_quote>
+        <img src="images/ii1-resize.jpg" alt="Snow" id="sun">
+
+        <div class="centered">
+            <h1 id="animated">
+                <span id="quote"></span>
+            </h1>
+        </div>
+    </div>
+    <div class="services" id="services">
+
+        <div class="serv_content" id="serv_1">
+            <img src="images/hospital_logo.png" alt="" class="service_icon">
+            <div id="serv_1_content" class="serv_conts">
+                <p>Doctors can keep track of their patient's medical history, add prescription, see the lab reports.
+                </p><a href="{% url 'Doctor_Signup'%}"><a href="{% url 'Doctor_Signup'%}"><button class="but reg_but">Register</button></a></a>
+                
+            </div>
+
+        </div>
+
+        <div class="serv_content" id="serv_2">
+            <img src="images/hospital-microscope-stroke-by-Vexels.png" alt="" class="service_icon">
+            <div id="serv_2_content" class="serv_conts">
+                <p>Laboratories can contact the patient and schedule the test, add the test report.</p>
+                <a href="{% url 'Laboratory_Signup'%}"><button class="but reg_but">Register</button></a>
+            </div>
+
+        </div>
+
+        <div class="serv_content" id="serv_3">
+            <img src="images/SVG/team.svg" alt="" class="service_icon">
+            <div id="serv_2_content" class="serv_conts">
+                <p>Users can seek medical help, see the reports, and much more.</p>
+                <a href="{% url 'Patient_Signup'%}"><button class="but reg_but">Register</button></a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="info">
+        <h2 class="info_title">MEDICAL Facility at Single place</h2>
+        <div class="info_content">
+            <p>The pandemic has taught us how important it is to take care of our health.Staying safe and healthy we
+                also kept our families and communities safe. Self-care became a priority and equipped us better to get
+                through this difficult time.</p>
+                
+            <p>Due to the spread of COVID-19 disease many patients are getting admitted at the same time,because of
+                which healthcare system is under very much pressure. Many patients are not getting proper treatment
+                which causes harm for patient's health. Since most of these is caused because of improper co-ordination,
+                not having medical history availabel,delay in reaching the test results and what not?!! </p>
+
+            <p>By having medical history available online at one place doctors can see the history in any place at any
+                moment, Labs can upload the test reports which reduces the time for the treatement. Ultimately reducing
+                risk to patient's health</p>
+        </div>
+    </div>
+
+    <div class="solution">
+        <div class="sol_title">
+            <h1>Solution</h1>
+            <p>We have made this Website which is beneficial to Doctors, Patients and Laboratories You just need to
+                Register.
+            </p>
+        </div>
+        <br>
+        <div id="sol_cont">
+            <div class="sols div_1">
+                <div>
+                    
+                    <img src='images/SVG/doctor-team.svg' class='iconDetails'>
+                </div>
+                <div class="contt">
+                    <h2>Prescription</h2>
+                    <p>Check the prescription anywhere, anytime </p>
+                </div>
+
+            </div>
+
+            <div class="sols div_2">
+                <div>
+                
+                    <img src='images/SVG/lab-report1.svg' class='iconDetails'>
+
+                </div>
+                <div class="contt">
+                    <h2>Reports</h2>
+                    <p>You can check the reports uploaded by the Lab Technicians </p>
+                </div>
+
+            </div>
+
+            <div class="sols div_3">
+                <div>
+                    
+                    <img src='images/SVG/heart-care.svg' class='iconDetails'>
+
+                </div>
+                <div class="contt">
+                    <h2>Heart Check</h2>
+                    <p>With our ML model check your heart's health</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <footer id="abt">
+        <div id="yt">
+            <h3>Short video explaining project!!</h3>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/SindoOQqYNg?rel=0">
+            </iframe>
+        </div>
+        
+        <div class="Contact_Us" id="Contact">
+            <h3>Contact Us</h3>
+            <div class="sign_off">
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"></a>
+                <!-- <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"><img src="images/github_icon.png" alt=""></a> -->
+            </div>
+        </div>
+    </footer>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/Home.js'%}"></script>
+</body>
+
+</html>
+

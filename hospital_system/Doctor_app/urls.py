@@ -7,10 +7,15 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls import url
 
 urlpatterns = [
+   
+   
+
     path('',views.DoctorHome, name='DoctorHome'),
+    path('View_Lab_report_Doc/<str:pk>',views.View_Lab_report_Doc, name='View_Lab_report_Doc'),
+    path('View_Prescription_Doc/<str:pk>',views.View_Prescription_Doc, name='View_Prescription_Doc'),
+    path('updateDoctorExtraForm_c/<str:username>',views.updateDoctorExtraForm_c, name='updateDoctorExtraForm_c'),
     path('Doctor_Signin',views.Doctor_Signin, name='Doctor_Signin'),
     path('Doctor_Signup',views.Doctor_Signup, name='Doctor_Signup'),
-    path('DoctorExtra',views.Doctor_Extra, name='DoctorExtra'),
     path('Doctor_done',views.Doctor_done, name='Doctor_done'),
     path('Heart_health',views.Heart_health, name='Heart_health'),
     path('View_Prescription',views.View_Prescription, name='View_Prescription'),

@@ -15,7 +15,7 @@ from .forms import DoctorExtraForm,AddressForm
 
 # Create your views here.
 def Home(request):
-	return render(request,'Doctor_app/Home.html')
+	return render(request,'Doctor_app/Home_bL.html')
 
 def DoctorHome(request):
 	return render(request,'Doctor_app/Doctor_Home.html')
@@ -30,9 +30,36 @@ def Doctor_Signin(request):
 			return redirect('Doctor_done')
 		else:
 			return render(request,'Doctor_app/Doctor_signin.html',{'i':'Invalid username or Password'})
-
 	else:
 		return render(request,'Doctor_app/Doctor_signin.html')
+	
+def updateDoctorExtraForm_c(request,username):
+	Patient_name = User.objects.get(username=username)
+	if request.method == 'POST':
+		doctorExtra = DoctorExtra.objects.get(user=Patient_name)
+		Address_N=doctorExtra.Address
+		form1 = DoctorExtraForm(request.POST,request.FILES, instance=doctorExtra)
+		form3 = AddressForm(request.POST,instance=Address_N)
+		if form1.is_valid():
+			form1.save()
+			form3.save()
+			return redirect("Doctor_Signin")
+
+	user=Patient_name
+	Address_N= Address()
+	Address_N.save()
+	DoctorExtra_n = DoctorExtra(user=user,Address=Address_N)
+	DoctorExtra_n.save()
+	doctorExtra = DoctorExtra.objects.get(user=Patient_name)
+	form = DoctorExtraForm(instance=doctorExtra)
+	Address_N=doctorExtra.Address
+	form2=AddressForm(instance=Address_N)
+	context = {'form':form,
+		'doctorExtra':doctorExtra,
+		'form2': form2,}
+		
+	return render(request, 'Doctor_app/DoctorExtra_form.html', context)
+		
 	
 
 def Doctor_Signup(request):
@@ -51,32 +78,15 @@ def Doctor_Signup(request):
 				group = Group.objects.get(name= 'Doctor')
 				group.user_set.add(users)
 				users.save()
-				return redirect('Doctor_Signin')
+				return redirect("updateDoctorExtraForm_c",username)
 		else:
 			 return render(request,'Doctor_app/Doctor_Signup.html',{'i':'Passwords are not same'})
 	else:
 		 return render(request,'Doctor_app/Doctor_Signup.html')
 
 
-@allowed_users(allowed_roles=['Doctor'])
-@authenticated_user 
-def Doctor_Extra(request):
-	username = request.user
-	if request.method == 'POST':
-		user=username
-		mobile = request.POST['Phonenumber']
-		Place_name = request.POST['Place_name']
-		city= request.POST['city']
-		state= request.POST['state']
-		pincode = request.POST['pincode']
-		Profilephoto = request.POST['fileToUpload']
-		Address_N= Address(Place_name=Place_name,city=city,state=state,pincode=pincode)
-		Address_N.save()
-		DoctorExtra_n = DoctorExtra(user=user,Profilephoto=Profilephoto,Address=Address_N,mobile=mobile)
-		DoctorExtra_n.save()
-		return HttpResponse("loged in")
-	else:
-		return render(request,'Doctor_app/DoctorExtra.html')
+
+
 @allowed_users(allowed_roles=['Doctor'])
 @authenticated_user 
 def Doctor_done(request):
@@ -184,23 +194,39 @@ def validate_username(request):
 	
 		return JsonResponse(username)
 
-
 def updateDoctorExtraForm(request):
-	Patient_name = request.user
-	users = User.objects.get(username=Patient_name)
-	doctorExtra = DoctorExtra.objects.get(user=users)
-	form = DoctorExtraForm(instance=doctorExtra)
-	Address_N=doctorExtra.Address
-	form2=AddressForm(instance=Address_N)
-	if request.method == 'POST':
-		form1 = DoctorExtraForm(request.POST,request.FILES, instance=doctorExtra)
-		form3 =AddressForm(request.POST,instance=Address_N)
-		if form1.is_valid():
-			print(1)
-			form1.save()
-			form3.save()
-			return redirect("Doctor_done")
-	context = {'form':form,
-		'doctorExtra':doctorExtra,
-		'form2': form2,}
-	return render(request, 'Doctor_app/DoctorExtra_form.html', context)
+		Patient_name = request.user
+		users = User.objects.get(username=Patient_name)
+		doctorExtra = DoctorExtra.objects.get(user=users)
+		form = DoctorExtraForm(instance=doctorExtra)
+		Address_N=doctorExtra.Address
+		form2=AddressForm(instance=Address_N)
+		if request.method == 'POST':
+			form1 = DoctorExtraForm(request.POST,request.FILES, instance=doctorExtra)
+			form3 = AddressForm(request.POST,instance=Address_N)
+			if form1.is_valid():
+				form1.save()
+				form3.save()
+				return redirect("Doctor_done")
+		context = {'form':form,
+			'doctorExtra':doctorExtra,
+			'form2': form2,}
+		return render(request, 'Doctor_app/DoctorExtra_form.html', context)
+
+
+def View_Prescription_Doc(request,pk):
+	Prescription_present=Prescription.objects.filter(Prescriptionid=pk)
+	context={
+		'Prescription_present':Prescription_present
+	}
+	return render(request, 'Doctor_app/prescription_template.html', context)
+
+def View_Lab_report_Doc(request,pk):
+	Lab_report_present=Lab_report.objects.filter(Lab_reportid=pk)
+	context={
+		'Lab_report_present':Lab_report_present
+	}
+	return render(request, 'Doctor_app/Lab_report_template.html', context)
+
+	
+	

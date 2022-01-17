@@ -1,75 +1,268 @@
-body {
-    font-family: "Lato", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Montserrat:wght@500&display=swap');
+html{
+    font-size: 62.5%;
+    /* font-size: .7vw; */
+    
+}
+body{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #D6E1E9;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+li, a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.but{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.navbar {
+    background-color: #4b4f68;
+    z-index: 100;
+    
+  }
+
+ .navbar-nav li a{
+     font-size: medium;
+     color: #fff;
+ }
+
+
+
+  .custom-toggler.navbar-toggler {
+    border-color: #fff;
+  }
+  /* Setting the stroke to green using rgb values (0, 128, 0) */
+
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255,255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .dropdown-menu{
+    background-color: #4b4f68;
+  }
+  .dropdown-menu li a{
+    color: #fff;
+  }
+.but{
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: .9rem 2.5rem;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.but:hover{
+    background-color: rgba(0,136,169,0.8);
+
+}  
+#logo{
+    cursor: pointer;
+    margin-right: auto;
+    max-width: 8rem;
+    max-height: 8rem;
+    background-color: khaki;
+    border:thin;
+    border-radius: 2.2rem;
+}
+
+.sign_up_form h1{
+    text-align: center;
+    margin: .5rem;
 }
 
 
+.signup{
+    width: 100%;
+    border: .19rem solid black;
+    border-radius: .7rem;
+    padding: 2rem;
+    padding-top: 4rem;
+    text-align: center;
+    
+}
+.my_row{
+    display: flex;
+    justify-content: space-evenly;
+}
+.elem{
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    
+}
+.elem input{
+    width: 50rem;
+    height: 4rem;
+    padding: 1.6rem 1.2rem;
+    border: 0.1rem solid #ccc;
+    border-radius: .4rem;
+    box-sizing: border-box;
+    
+}
 
-.main-head{
-    height: 150px;
-    background: #FFF;
+.btn{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: .9rem 2.5rem;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+
+.btn:hover{
+    background-color: rgba(0,136,169,.8);
+}
+
+
+#abt{
+
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: dodgerblue;
+}
+
+#abt > div {
+    margin: 2rem auto;
+
+  }
+
+
+#yt h3{
+    color: springgreen;
+
+}
+
+
+.Contact_Us h3{
+    color: springgreen;
+    text-align: center;
+
+}
+.sign_off{
+    /* background-color: #000; */
+
+    height: 9rem;
+    padding: 1.2em;
+    text-align: center;
+}
+.fa {
+    padding: 2rem;
+    font-size: 3rem;
+    width: 7rem;
+    text-align: center;
+    text-decoration: none;
+    margin: .5rem .2rem;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-github{
+
+    background: #125688;
+    color: white;
+
+  }
+
+
+
+
+
+
+
+
+
+  @media(max-width:1024px){
+      
+      .my_row{
+          flex-direction: column;
+          
+      }
+      .elem input{
+          width: 70%;
+      }
+      
+  }
+
+
+  @media(max-width:768px){
+    html{
+        font-size: 55%;
+    }
+    
+}
+
+@media (max-width:480px){
    
-}
+  html{
+      font-size: 45%;
+  }
 
-.sidenav {
-    height: 100%;
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
+  div{
+      width: 100%;
+  }
 
-
-.main {
-    padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-}
-
-@media screen and (max-width: 450px) {
-    .login-form{
-        margin-top: 10%;
+    #logo{
+      transform: scale(.8);
+      margin-left: 1rem;
     }
-
-    .register-form{
-        margin-top: 10%;
+    .reg{
+        display: block;
     }
+    .register,.for_pass{
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+::placeholder{
+    font-size: 1.8rem;
 }
+  #abt{
+      /* transform: translateY(100%); */
+      margin-top: 20rem;
+  }
 
-@media screen and (min-width: 768px){
-    .main{
-        margin-left: 40%; 
-    }
+  #yt iframe{
+      margin-left: 1rem;
+      width: 20rem;
+      height: 11.5rem;
+  }
 
-    .sidenav{
-        width: 40%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
+  .fa{
+      width: 5rem;
+      font-size: 2rem;
+      padding: 1rem;
+  }
 
-    .login-form{
-        margin-top: 20%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
-}
-
-
-.login-main-text{
-    margin-top: 20%;
-    padding: 60px;
-    color: #fff;
-}
-
-.login-main-text h2{
-    font-weight: 300;
-}
-
-.btn-black{
-    background-color: #000 !important;
-    color: #fff;
+  
 }

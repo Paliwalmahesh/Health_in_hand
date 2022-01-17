@@ -1,0 +1,120 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../images/HiH_Logo.png" type="image/png">
+    <title>Health in Hands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Montserrat:wght@500&display=swap');
+        
+            html{
+                font-size: 62.5%;
+            }
+            body{
+                box-sizing:border-box;
+                margin: 0;
+                padding: 0;
+                background-color: #D6E1E9;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .prescription{
+                max-width: 70rem;
+                border: solid .3rem red;
+            }
+            .Title{
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+            .heading{
+                display: flex;
+            }
+        
+            #logo{
+                cursor: pointer;
+                margin-left: 3rem;
+                max-width: 5rem;
+                max-height: 5rem;
+                background-color: navajowhite;
+                border:thin;
+                border-radius: 2.2rem;
+            }
+            .website{
+                margin-left: auto;
+                margin-right: 3rem;
+            }
+        
+            .presc_content, .presc_advice{
+                min-height: 10rem;
+            }
+        
+            hr{
+                border: red .1rem dashed;
+            }
+        
+            .links{
+                display: flex;
+            }
+        
+            .links p{
+                font-size: 1.2rem;
+                margin: auto;
+            }
+            #HiH{
+                margin-left: 0;
+            }
+            #Youtube{
+                margin-right: 0;
+            }
+        </style>
+</head>
+{% for i in Prescription_present %}
+<body>
+    
+    <div class="prescription">
+        <h2 class="Title">Prescription</h2>
+        <div class="heading">
+            
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="/images/Web_Logo.png" alt="Health in Hands" id="logo" /></a>
+            </div>
+            <div class="website">
+                <h3>Prescription By:Dr.{{i.Doctor_name}}</h3>
+                <h4>Prescription Date: {{i.Prescription_date}}</h4>
+            </div>
+        </div>
+        <hr>
+    
+        <div class="patient_details">
+            <h2>Patient Name:-{{i.Patient_name}}</h2>
+        </div>
+    
+        <div class="presc_content">
+            <h2>Prescription:-</h2>
+            {{i.Prescription_text}}
+        </div>
+    
+        <div class="presc_advice">
+            <h2>Special Advice:-</h2>
+            {{i.special_advice}}
+        </div>
+    
+        <hr>
+        <div class="contact_us">
+            <h3>Contact Us </h3>
+            <div class="links">
+                <p id="HiH">github.com/Paliwalmahesh</p>
+                <p id="GitHub">github.com/Paliwalmahesh</p>
+                <p id="Youtube">www.youtube.com/embed/SindoOQqYNg?rel=0"</p>
+    
+            </div>
+        </div>
+    <br>
+    </div>
+</body>
+{% endfor %}
+</html>

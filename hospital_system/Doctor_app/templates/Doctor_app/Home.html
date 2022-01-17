@@ -1,199 +1,208 @@
-{% load static%}
-<!doctype html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-  
-
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>home page </title>
-    
-
-    <script>
-            function myFunction(page) {
-                window.open(page);
-            }
-    </script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel = "stylesheet"type="text/css" href="{% static 'css/Home.css'%}">
-  </head>
-  <body >
-    <div  >
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top " style="padding-top:3px;background-color:cornsilk; border-radius:10px;border:grey solid;">
-      <div class="container-fluid">
-        <a class="navbar-brand text-capitalize fw-bold" href="#"> Health in hand </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav" >
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color:rgb(84, 95, 107);" >Home</a>
-            </li>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/HiH_Logo.png" type="image/png">
+    <title>Health in Hands</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="images/Web_Logo.png" alt="Health in Hands" id="logo"
+          /></a>
+          <button
+            class="navbar-toggler custom-toggler but"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            id=toggle_button
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Login
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Doctor</a></li>
+                  <li><a class="dropdown-item" href="#">Laboratory</a></li>
+                  <!-- <li><hr class="dropdown-divider"></li> -->
+                  <li><a class="dropdown-item" href="#">Patient</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link "
+                  href="#"
+                  tabindex="-1"
+                  aria-disabled="true"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
             
-           
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-    
-   <div >
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="images/home 3.jpg" class="d-block w-100" alt=" " >
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="images/home lab.jpg" class="d-block w-100" alt=" " >
-          </div>
-          <div class="carousel-item">
-            <img src="images/home doctor.jpg"class="d-block w-100" alt="" >
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-   </div>
+      </nav>
+    <div id=imge_quote>
+        <img src="images/ii1-resize.jpg" alt="Snow" id="sun">
 
-   <!-- Parallax to below -->
-  
-  <div id="parallax">
-   <div class="mx-auto my-5">
-    <div class="row mx-auto " id ="cont">
+        <div class="centered">
+            <h1 id="animated">
+                <span id="quote"></span>
+            </h1>
+        </div>
+    </div>
+    <div class="services" id="services">
+
+        <div class="serv_content" id="serv_1">
+            <img src="images/hospital_logo.png" alt="" class="service_icon">
+            <div id="serv_1_content" class="serv_conts">
+                <p>Doctors can keep track of their patient's medical history, add prescription, see the lab reports.
+                </p>
+                <button class="but reg_but">Register</button>
+            </div>
+
+        </div>
+
+        <div class="serv_content" id="serv_2">
+            <img src="images/hospital-microscope-stroke-by-Vexels.png" alt="" class="service_icon">
+            <div id="serv_2_content" class="serv_conts">
+                <p>Laboratories can contact the patient and schedule the test, add the test report.</p>
+                <button class="but reg_but">Register</button>
+            </div>
+
+        </div>
+
+        <div class="serv_content" id="serv_3">
+            <img src="images/SVG/team.svg" alt="" class="service_icon">
+            <div id="serv_2_content" class="serv_conts">
+                <p>Users can seek medical help, see the reports, and much more.</p>
+                <button class="but reg_but">Register</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="info">
+        <h2 class="info_title">MEDICAL Facility at Single place</h2>
+        <div class="info_content">
+            <p>The pandemic has taught us how important it is to take care of our health.Staying safe and healthy we
+                also kept our families and communities safe. Self-care became a priority and equipped us better to get
+                through this difficult time.</p>
+                
+            <p>Due to the spread of COVID-19 disease many patients are getting admitted at the same time,because of
+                which healthcare system is under very much pressure. Many patients are not getting proper treatment
+                which causes harm for patient's health. Since most of these is caused because of improper co-ordination,
+                not having medical history availabel,delay in reaching the test results and what not?!! </p>
+
+            <p>By having medical history available online at one place doctors can see the history in any place at any
+                moment, Labs can upload the test reports which reduces the time for the treatement. Ultimately reducing
+                risk to patient's health</p>
+        </div>
+    </div>
+
+    <div class="solution">
+        <div class="sol_title">
+            <h1>Solution</h1>
+            <p>We have made this Website which is beneficial to Doctors, Patients and Laboratories You just need to
+                Register.
+            </p>
+        </div>
+        <br>
+        <div id="sol_cont">
+            <div class="sols div_1">
+                <div>
+                    
+                    <img src='images/SVG/doctor-team.svg' class='iconDetails'>
+                </div>
+                <div class="contt">
+                    <h2>Prescription</h2>
+                    <p>Check the prescription anywhere, anytime </p>
+                </div>
+
+            </div>
+
+            <div class="sols div_2">
+                <div>
+                
+                    <img src='images/SVG/lab-report1.svg' class='iconDetails'>
+
+                </div>
+                <div class="contt">
+                    <h2>Reports</h2>
+                    <p>You can check the reports uploaded by the Lab Technicians </p>
+                </div>
+
+            </div>
+
+            <div class="sols div_3">
+                <div>
+                    
+                    <img src='images/SVG/heart-care.svg' class='iconDetails'>
+
+                </div>
+                <div class="contt">
+                    <h2>Heart Check</h2>
+                    <p>With our ML model check your heart's health</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <footer id="abt">
+        <div id="yt">
+            <h3>Short video explaining project!!</h3>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/SindoOQqYNg?rel=0">
+            </iframe>
+        </div>
         
-        <div class="container" id = "i1" data-aos="fade-right">
-            <img src="images//doctors.jpg" class="image" alt="">
-            <div class="overlay" >
-              <div class="text" ><p>Welcome Doctor!!!<br> Get your data sorted </p>
-                <a href="DoctorHome/Doctor_Signin" class="btn btn-warning">Doctor Page</a>
-               </div>
+        <div class="Contact_Us" id="Contact">
+            <h3>Contact Us</h3>
+            <div class="sign_off">
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"></a>
+                <!-- <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"><img src="images/github_icon.png" alt=""></a> -->
             </div>
         </div>
-        <div class="container" id="i2" data-aos="fade-up">
-            <img src="images//Lab.jpg" class="image" alt="">
-            <div class="overlay" >
-              <div class="text"><p>Welcom Lab tecnhnician !!!  </p>
-              <a href="LaboratoryHome/Laboratory_Signin" class="btn btn-warning"> Lab Page </a>
-               </div>
-            </div>
-        </div>
-        <div class="container" id="i3" data-aos="fade-left">
-            <img src="images//User.png" class="image" alt="">
-            <div class="overlay">
-             <div class="text" ><p>Welcome User!!!</p>
-             <a href="PatientHome/Patient_Signin" class="btn btn-warning">User Page</a>
-              </div>
-            </div>
-        </div> 
-    
-</div>
-
-
-
-
-<div class="col-8">
-<div class="card mb-3 mx-5 my-2"  style="max-width: 660px;" >
-  <br>
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="images/why3.jpg"  class="img-thumbnail" alt="">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Why This Project?</h5>
-        <p class="card-text"> Due to the pandamic our health system is working under pressure many 
-          patients are admitted at a time.  If  doctors are unable to track medical history then the treatment gets delayed
-           and this is very harmfull for the health of patient. </p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div style="margin-left: 50%;">
-<div class="card mb-3 mx-5 my-2 " style="max-width: 660px;"  >
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="images/Solution-Ball.jpg"  class="img-thumbnail" alt="">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Solution offered by our project</h5>
-        <p class="card-text"> By storing the all medical history at one place online the 
-          Doctors can see your history any time from any place. It helps to get speed to the treatments. </p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div class="col-8">
-  <div class="card mb-3 mx-5 my-2 " style="max-width: 660px;" >
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="images/hearthealth-compressor.jpg"  class="img-thumbnail" alt="">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Extra Features of Project?</h5>
-          <p class="card-text"> Using the ML algorithum we are also tring to check the heart health of the User. </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div style="margin-left: 50%;">
-  <div class="card mb-3 mx-5 my-2 " style="max-width: 660px;"  >
-    <div class="row g-0" >
-      <div class="col-md-6">
-        <iframe class="embed-responsive-item img-thumbnail"  src="https://www.youtube.com/embed/SindoOQqYNg?rel=0" allowfullscreen></iframe>
-      </div>
-      <div class="col-md-4">
-        <div class="card-body">
-          <h5 class="card-title">Short video explaining working of project </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  
-</div>
-
-
-
-
-   
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-        AOS.init({
-            offset: 120,
-            duration: 900
-        });
-        </script>
-
-  </body>
-  <br>
-  <br>
-{% include "Doctor_app/doctor_footer.html" %}
+    </footer>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/Home.js'%}"></script>
+</body>
 
 </html>
+

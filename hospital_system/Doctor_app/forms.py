@@ -3,19 +3,16 @@ from .models import DoctorExtra
 from django import forms
 from Patient_app.models import Address
 
-
-class DoctorExtraForm(ModelForm):
+class DoctorExtraForm(forms.ModelForm):
 	class Meta:
 		model = DoctorExtra
 		fields = ['mobile','Profilephoto']
 		widgets = {
 			'mobile' : forms.TextInput(attrs={'class':'form-control my-2'}),
 			'Profilephoto' :forms.FileInput(attrs={'class':'form-control my-2'}),
-			
-		  
 		}
 
-class AddressForm(ModelForm):
+class AddressForm(forms.ModelForm):
 	class Meta:
 		model = Address
 		fields = '__all__'

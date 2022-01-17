@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&family=Montserrat:wght@500&display=swap');
+html{
+    font-size: 62.5%;
+    /* font-size: .7vw; */
+    
+}
+body{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #D6E1E9;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+li, a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.but{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #ecf0f1;
+
+}
+.navbar {
+    background-color: #4b4f68;
+    z-index: 100;
+    
+  }
+
+ .navbar-nav li a{
+     font-size: medium;
+     color: #fff;
+ }
+
+
+
+  .custom-toggler.navbar-toggler {
+    border-color: #fff;
+  }
+  /* Setting the stroke to green using rgb values (0, 128, 0) */
+
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255,255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .dropdown-menu{
+    background-color: #4b4f68;
+  }
+  .dropdown-menu li a{
+    color: #fff;
+  }
+.but{
+    
+    padding: .9rem 2.5rem;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.but:hover{
+    background-color: rgba(0,136,169,0.8);
+
+}  
+#logo{
+    cursor: pointer;
+    margin-right: auto;
+    max-width: 8rem;
+    max-height: 8rem;
+    background-color: khaki;
+    border:thin;
+    border-radius: 2.2rem;
+}
+
+
+
+form{
+    width: 50%;
+    margin: 5rem auto ;
+    
+}
+
+input{
+    width: 50rem;
+    height: 4rem;
+    padding: 1.6rem 1.2rem;
+    border: 0.1rem solid #ccc;
+    border-radius: .4rem;
+    box-sizing: border-box;
+    
+}
+
+label{
+    font-size: medium;
+}
+
+
+
+#abt{
+
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: dodgerblue;
+}
+
+#abt > div {
+    margin: 2rem auto;
+
+  }
+
+
+#yt h3{
+    color: springgreen;
+
+}
+
+
+.Contact_Us h3{
+    color: springgreen;
+}
+.sign_off{
+    /* background-color: #000; */
+
+    height: 9rem;
+    padding: 1.2em;
+    text-align: center;
+}
+.fa {
+    padding: 2rem;
+    font-size: 3rem;
+    width: 7rem;
+    text-align: center;
+    text-decoration: none;
+    margin: .5rem .2rem;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-github{
+
+    background: #125688;
+    color: white;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  @media(max-width:1024px){
+    html{
+        font-size: 55%;
+    }
+
+    .my_row{
+        flex-direction: column;
+    }
+    input{
+        width: 100%;
+    }
+
+    .update{
+        text-align: center;
+    }
+    
+}
+
+@media (max-width:480px){
+   
+  html{
+      font-size: 45%;
+  }
+
+  
+
+    #logo{
+      transform: scale(.8);
+      margin-left: 1rem;
+    }
+
+
+    .my_row{
+        flex-direction: column;
+    }
+    input{
+        width: 100%;
+    }
+
+    .update{
+        width: 100%;
+    }
+
+  #abt{
+      /* transform: translateY(100%); */
+      margin-top: 20rem;
+  }
+
+  #yt iframe{
+      margin-left: 1rem;
+      width: 20rem;
+      height: 11.5rem;
+  }
+
+  .fa{
+      width: 5rem;
+      font-size: 2rem;
+      padding: 1rem;
+  }
+
+  
+}

@@ -1,112 +1,112 @@
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Doctor page </title>
-    
-  </head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light "style="background-color: #e3f2fd;">
-    <div class= "container-fluid">
-      <a class="navbar-brand text-capitalize fw-bold" href="#">Doctor Page</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'Heart_health' %}">Heart Check</a>
-            
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              facility
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{% url 'Doctor_Prescription' %}">Add Prescription</a></li>
-              <li><a class="dropdown-item" href="{% url 'View_Reports' %}">View reports</a></li>
-              <li><a class="dropdown-item" href="{% url 'View_Prescription' %}">View Prescription</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="{% url 'updateDoctorExtraForm' %}" tabindex="-1" > Profile</a>
-
-          </li>
-        </ul>
-        <span class="navbar-text text-capitalize fw-bold">
-         Welcome, Dr.{{request.user.username}}
-        </span>
-      </div>
-    </div>
-  </nav>
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="images\doc home 3.jpg" class="d-block w-100" alt="">
-      </div>
-      <div class="carousel-item">
-        <img src="images\doc home 2.jpg" class="d-block w-100" alt="">
-      </div>
-      <div class="carousel-item">
-        <img src="images\doc home 1.jpg" class="d-block w-100" alt="">
-      </div>
-    </div>
-    
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="content">
-<head>
-    <link rel="stylesheet" href="{% static 'css/Doctor_signup.css'%}">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-   
-</head>
-<div>
-    <div>
-        <br>
-        <br>
-        <div class="alert alert-light" role="alert">
-            {{i}}
-           </div>
-        <h2 style=' text-align: center;'>Access your required facility from navbar</h2>
-        <br>
-        <br>
+  <!DOCTYPE html>
+  <html lang="en">
   
-   
-    </div>
-</div>
-
-</div>
-
-<footer>
-{% include "Doctor_app/doctor_footer.html" %}
-</footer>
-</body>
-<!-- Optional JavaScript; choose one of the two! -->
-
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <!--
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script> -->
-</html>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../images/HiH_Logo.png" type="image/png">
+      <title>Health in Hands</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+      <link rel="stylesheet" href="{% static 'css\doctor_home.css'%}">
+  </head>
+  
+  <body>
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="/images/Web_Logo.png" alt="Health in Hands" id="logo" /></a>
+              <button class="navbar-toggler custom-toggler but" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation" id=toggle_button>
+              <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div><h3 id="profile">Welcome {{request.user.username}}</h3></div>
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="{% url 'Home' %}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'updateDoctorExtraForm' %}">Profile</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                          <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+                      </li>
+                  </ul>
+  
+              </div>
+          </div>
+      </nav>
+      <div class="alert alert-primary mx-auto my-5" role="alert">
+        <h6 class="mx-auto"> {{i}}</h6>
+       
+      </div>
+  
+      <div class="facilities">
+          <!-- <h1>Facilities</h1> -->
+          <div class="facility add_report">
+              <img src="/images/SVG/lab-report.svg" alt="">
+              <div class="my_container">
+                  <h4>Click Here to to add the Prescription</h4>
+                  <a href="{% url 'Doctor_Prescription' %}">Add Prescription</a>
+              </div>
+          </div>
+  
+          <div class="facility view_prescription">
+              <img src="/images/SVG/prescription.svg" alt="">
+              <div class="my_container">
+                  <h4>Click Here to View Prescription</h4>
+                  <a href="{% url 'View_Prescription' %}">View Prescription</a>
+              </div>
+          </div>
+  
+          <div class="facility view_report">
+              <img src="/images/SVG/medical-report.svg" alt="">
+              <div class="my_container">
+                  <h4>Click Here to View Test Reports</h4>
+                  <a href="{% url 'View_Reports' %}"> View Reports</a>
+              </div>
+          </div>
+      </div>
+  
+  
+      <footer id="abt">
+          <div id="yt">
+              <h3>Short video explaining project!!</h3>
+              <iframe width="300" height="215" src="https://www.youtube.com/embed/SindoOQqYNg?rel=0">
+              </iframe>
+          </div>
+  
+          <div class="Contact_Us" id="Contact">
+              <h3>Contact Us</h3>
+              <div class="sign_off">
+                  <a href="#" class="fa fa-instagram"></a>
+                  <a href="#" class="fa fa-linkedin"></a>
+                  <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"></a>
+                  <!-- <a href="https://github.com/Paliwalmahesh" target="_blank" class="fa fa-github"><img src="../images/github_icon.png" alt=""></a> -->
+              </div>
+          </div>
+      </footer>
+  
+  
+  
+  
+  
+  
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  
+  </body>
+  
+  </html>
+  
+  
