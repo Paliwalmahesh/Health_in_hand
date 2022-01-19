@@ -80,9 +80,9 @@ def Doctor_Signup(request):
 				users.save()
 				return redirect("updateDoctorExtraForm_c",username)
 		else:
-			 return render(request,'Doctor_app/Doctor_Signup.html',{'i':'Passwords are not same'})
+			return render(request,'Doctor_app/Doctor_Signup.html',{'i':'Passwords are not same'})
 	else:
-		 return render(request,'Doctor_app/Doctor_Signup.html')
+		return render(request,'Doctor_app/Doctor_Signup.html')
 
 
 
@@ -153,7 +153,7 @@ def View_Prescription(request):
 			if (Patient_Passcode==patientPasscodes.passcode):
 				return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
 			else:
-			   return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
+				return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
 		else:
 			return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})   
 	else:

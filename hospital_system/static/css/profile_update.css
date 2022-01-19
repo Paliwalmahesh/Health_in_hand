@@ -126,7 +126,9 @@ input{
     float: left;
 }
 #profile{
-    text-align: left;
+    text-align: center;
+    font-size: medium;
+     color: #fff;
 }
 
 #fileToUpload{
@@ -153,12 +155,14 @@ input{
 
 #yt h3{
     color: springgreen;
+    text-align: center;
 
 }
 
 
 .Contact_Us h3{
     color: springgreen;
+    text-align: center;
 }
 .sign_off{
     /* background-color: #000; */
@@ -260,6 +264,7 @@ input{
       width: 20rem;
       height: 11.5rem;
   }
+  
 
   .fa{
       width: 5rem;
