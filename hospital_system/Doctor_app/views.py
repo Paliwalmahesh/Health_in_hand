@@ -13,7 +13,12 @@ from .forms import DoctorExtraForm,AddressForm
 
 
 
-# Create your views here.
+
+
+def logout_view(request):
+	logout(request)
+	return redirect('Home')
+
 def Home(request):
 	return render(request,'Doctor_app/Home_bL.html')
 
@@ -35,30 +40,31 @@ def Doctor_Signin(request):
 	
 def updateDoctorExtraForm_c(request,username):
 	Patient_name = User.objects.get(username=username)
-	if request.method == 'POST':
+	try:
+		if request.method == 'POST':
+			doctorExtra = DoctorExtra.objects.get(user=Patient_name)
+			Address_N=doctorExtra.Address
+			form1 = DoctorExtraForm(request.POST,request.FILES, instance=doctorExtra)
+			form3 = AddressForm(request.POST,instance=Address_N)
+			if form1.is_valid():
+				form1.save()
+				form3.save()
+				return redirect("Doctor_Signin")
+		user=Patient_name
+		Address_N= Address()
+		Address_N.save()
+		DoctorExtra_n = DoctorExtra(user=user,Address=Address_N)
+		DoctorExtra_n.save()
 		doctorExtra = DoctorExtra.objects.get(user=Patient_name)
+		form = DoctorExtraForm(instance=doctorExtra)
 		Address_N=doctorExtra.Address
-		form1 = DoctorExtraForm(request.POST,request.FILES, instance=doctorExtra)
-		form3 = AddressForm(request.POST,instance=Address_N)
-		if form1.is_valid():
-			form1.save()
-			form3.save()
-			return redirect("Doctor_Signin")
-
-	user=Patient_name
-	Address_N= Address()
-	Address_N.save()
-	DoctorExtra_n = DoctorExtra(user=user,Address=Address_N)
-	DoctorExtra_n.save()
-	doctorExtra = DoctorExtra.objects.get(user=Patient_name)
-	form = DoctorExtraForm(instance=doctorExtra)
-	Address_N=doctorExtra.Address
-	form2=AddressForm(instance=Address_N)
-	context = {'form':form,
-		'doctorExtra':doctorExtra,
-		'form2': form2,}
-		
-	return render(request, 'Doctor_app/DoctorExtra_form.html', context)
+		form2=AddressForm(instance=Address_N)
+		context = {'form':form,
+			'doctorExtra':doctorExtra,
+			'form2': form2,}
+		return render(request, 'Doctor_app/DoctorExtra_form.html', context)
+	except:
+		return render(request,'Doctor_app/Doctor_signin.html',{'i':'Invalid username or Password'})
 		
 	
 
@@ -80,9 +86,9 @@ def Doctor_Signup(request):
 				users.save()
 				return redirect("updateDoctorExtraForm_c",username)
 		else:
-			 return render(request,'Doctor_app/Doctor_Signup.html',{'i':'Passwords are not same'})
+			return render(request,'Doctor_app/Doctor_Signup.html',{'i':'Passwords are not same'})
 	else:
-		 return render(request,'Doctor_app/Doctor_Signup.html')
+		return render(request,'Doctor_app/Doctor_Signup.html')
 
 
 
@@ -142,6 +148,8 @@ def Heart_health(request):
 	else:
 		return render(request,'Doctor_app/Model_input.html')
 
+@allowed_users(allowed_roles=['Doctor'])
+@authenticated_user 
 def View_Prescription(request):
 	if request.method=='POST':
 		Patient_name=request.POST['Patient_user_name']
@@ -153,12 +161,14 @@ def View_Prescription(request):
 			if (Patient_Passcode==patientPasscodes.passcode):
 				return render(request,'Doctor_app/view_prescription.html',{'prescription':prescription})
 			else:
-			   return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
+				return render(request,'Doctor_app/Username_input.html',{'i':"user passcodes is wrong"})  
 		else:
 			return render(request,'Doctor_app/Username_input.html',{'i':"user does not exits"})   
 	else:
 		return render(request,'Doctor_app/Username_input.html')
 
+@allowed_users(allowed_roles=['Doctor'])
+@authenticated_user 
 def View_Reports(request):
 	if request.method=='POST':
 		Patient_name=request.POST['Patient_user_name']
@@ -178,22 +188,13 @@ def View_Reports(request):
 		return render(request,'Doctor_app/Username_input.html')
 	
 def validate_username(request):
-	# users = list(User.objects.values_list('username', flat=True))
-	# message = "Hello "+username
-	# if(username in users):
-	#     message = "Username already taken"
-	# else:
-	#     message = "Username Available"
-
 	if request.method == 'GET':
 		users = list(User.objects.values_list('username', flat=True)) 
 		username = {'usernames':users}
-		# username=request.GET.get('username')
-		# message = "Hello "+str(username)
-	# return HttpResponse('Url Object Created')
-	
 		return JsonResponse(username)
-
+	
+@allowed_users(allowed_roles=['Doctor'])
+@authenticated_user 
 def updateDoctorExtraForm(request):
 		Patient_name = request.user
 		users = User.objects.get(username=Patient_name)

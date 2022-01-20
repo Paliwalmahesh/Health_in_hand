@@ -14,30 +14,33 @@ def LaboratoryHome(request):
 
 def updateLaboratoryExtraForm_c(request,username):
 	Patient_name = User.objects.get(username=username)
-	if request.method == 'POST':
-		laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
-		Address_N=laboratoryExtra.Address
-		form1 = LaboratoryExtraForm(request.POST,request.FILES, instance=laboratoryExtra)
-		form3 = AddressForm(request.POST,instance=Address_N)
-		if form1.is_valid():
-			form1.save()
-			form3.save()
-			return redirect("Laboratory_Signin")
+	try:
+		if request.method == 'POST':
+			laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
+			Address_N=laboratoryExtra.Address
+			form1 = LaboratoryExtraForm(request.POST,request.FILES, instance=laboratoryExtra)
+			form3 = AddressForm(request.POST,instance=Address_N)
+			if form1.is_valid():
+				form1.save()
+				form3.save()
+				return redirect("Laboratory_Signin")
 
-	user=Patient_name
-	Address_N= Address()
-	Address_N.save()
-	LaboratoryExtra_n = LaboratoryExtra(user=user,Address=Address_N)
-	LaboratoryExtra_n.save()
-	laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
-	form = LaboratoryExtraForm(instance=laboratoryExtra)
-	Address_N=laboratoryExtra.Address
-	form2=AddressForm(instance=Address_N)
-	context = {'form':form,
-		'laboratoryExtra':laboratoryExtra,
-		'form2': form2,}
-		
-	return render(request, 'Laboratory_app/LaboratoryExtra_form.html', context)
+		user=Patient_name
+		Address_N= Address()
+		Address_N.save()
+		LaboratoryExtra_n = LaboratoryExtra(user=user,Address=Address_N)
+		LaboratoryExtra_n.save()
+		laboratoryExtra = LaboratoryExtra.objects.get(user=Patient_name)
+		form = LaboratoryExtraForm(instance=laboratoryExtra)
+		Address_N=laboratoryExtra.Address
+		form2=AddressForm(instance=Address_N)
+		context = {'form':form,
+			'laboratoryExtra':laboratoryExtra,
+			'form2': form2,}
+		return render(request, 'Laboratory_app/LaboratoryExtra_form.html', context)
+	except:
+		return render(request,'Laboratory_app/Laboratory_signin.html',{'i':'Login & update'})
+
 def Laboratory_Signup(request):
     if request.method == 'POST':
         first_name = request.POST['First_name']
@@ -73,6 +76,8 @@ def Laboratory_Signin(request):
 
     else:
         return render(request,'Laboratory_app/Laboratory_signin.html')
+
+
 @allowed_users(allowed_roles=['Laboratory'])
 @authenticated_user        
 def Laboratory_done(request):
@@ -102,13 +107,14 @@ def Laboratory_report(request):
     else:
         return render(request,'Laboratory_app/Laboratory_reports.html')
 
-
+@allowed_users(allowed_roles=['Laboratory'])
+@authenticated_user 
 def updateLaboratoryExtraForm(request):
 		Patient_name = request.user
 		users = User.objects.get(username=Patient_name)
-		LaboratoryExtra = LaboratoryExtra.objects.get(user=users)
-		form = LaboratoryExtraForm(instance=LaboratoryExtra)
-		Address_N=LaboratoryExtra.Address
+		laboratoryExtra = LaboratoryExtra.objects.get(user=users)
+		form = LaboratoryExtraForm(instance=laboratoryExtra)
+		Address_N=laboratoryExtra.Address
 		form2=AddressForm(instance=Address_N)
 		if request.method == 'POST':
 			form1 = LaboratoryExtraForm(request.POST,request.FILES, instance=LaboratoryExtra)
@@ -118,10 +124,12 @@ def updateLaboratoryExtraForm(request):
 				form3.save()
 				return redirect("Laboratory_done")
 		context = {'form':form,
-			'laboratoryExtra':LaboratoryExtra,
+			'laboratoryExtra':laboratoryExtra,
 			'form2': form2,}
 		return render(request, 'Laboratory_app/LaboratoryExtra_form.html', context)
 
+@allowed_users(allowed_roles=['Laboratory'])
+@authenticated_user 
 def View_Reports_lab(request):
 	if request.method=='POST':
 		Patient_name=request.POST['Patient_user_name']
@@ -140,7 +148,8 @@ def View_Reports_lab(request):
 	else:
 		return render(request,'Laboratory_app/Username_input.html')
 	
-
+@allowed_users(allowed_roles=['Laboratory'])
+@authenticated_user 
 def View_Lab_report_Lab(request,pk):
 	Lab_report_present=Lab_report.objects.filter(Lab_reportid=pk)
 	context={

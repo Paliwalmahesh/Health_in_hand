@@ -9,7 +9,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
    
    
-
+   
+    path('logout_view',views.logout_view, name='logout_view'),
     path('',views.DoctorHome, name='DoctorHome'),
     path('View_Lab_report_Doc/<str:pk>',views.View_Lab_report_Doc, name='View_Lab_report_Doc'),
     path('View_Prescription_Doc/<str:pk>',views.View_Prescription_Doc, name='View_Prescription_Doc'),
