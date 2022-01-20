@@ -244,6 +244,9 @@ li, a{
         width: 100%;
         margin-bottom: 2rem;
     }
+    #userValid{
+        float: left;
+    }
 ::placeholder{
     font-size: 1.8rem;
 }

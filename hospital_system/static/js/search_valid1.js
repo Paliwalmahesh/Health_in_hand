@@ -23,14 +23,14 @@ function validity11(){
                     if(val){
                         document.getElementById('userValid1').innerHTML = "This Username is in the system ";
                         document.getElementById('userDOC1').style.borderColor = "green";
-                        document.getElementById('signup_btn').disabled = true;
+                        document.getElementById('signup_btn').disabled = false;
 
                     
                     }
                     else{
                         document.getElementById('userValid1').innerHTML = "This Username not in system";
                       document.getElementById('userDOC1').style.borderColor = "red";
-                      document.getElementById('signup_btn').disabled = false;
+                      document.getElementById('signup_btn').disabled = true;
                       
                     }
                 }
